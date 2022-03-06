@@ -1,10 +1,17 @@
 from sources import tools, demarrer
-from sources.state import bureau 
+from sources.state import bureau,transition,niveau
 
 def main():
-    game= tools.Game()
-    state = bureau.MainMenu() #初始化主菜单界面
-    game.run(state)
+    
+    
+    state_dict={
+        'bureau':bureau.MainMenu(),
+        'transition':transition.Transition(),
+        'niveau':niveau.Niveau()
+    }
+    
+    game= tools.Game(state_dict,'bureau')
+    game.run()
 
 if __name__ == '__main__':
     main()

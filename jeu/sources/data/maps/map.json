@@ -1,0 +1,6 @@
+{
+    "image_name":"map",
+    "map":[
+        {"start_x":29,"end_x":2213,"player_x":0,"player_y": 1118}
+    ]
+}

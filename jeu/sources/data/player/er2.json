@@ -1,0 +1,34 @@
+{
+    "image_name": "er2",
+    "image_frames":{
+        "right_normal":[
+            {"x":5,"y":157,"width":61,"height":50},
+            {"x":75,"y":157,"width":62,"height":50},
+            {"x":141,"y":155,"width":60,"height":53},
+            {"x":206,"y":157,"width":60,"height":50},
+            {"x":270,"y":158,"width":60,"height":49},
+            {"x":333,"y":156,"width":60,"height":52},
+            {"x":59,"y":225,"width":33,"height":57},
+            {"x":281,"y":74,"width":37,"height":60},
+            {"x":101,"y":227,"width":42,"height":56},  
+            {"x":4,"y":410,"width":33,"height":56},
+            {"x":50,"y":409,"width":36,"height":57},
+            {"x":94,"y":404,"width":83,"height":62},
+            {"x":187,"y":396,"width":63,"height":70},
+            {"x":254,"y":410,"width":63,"height":70}
+        ]
+    },
+    "speed":{
+        "max_walk_speed":5.5,
+        "max_run_speed": 12,
+        "max_y_velocity":11,
+        "walk_accel":0.15,
+        "run_accel":0.3,
+        "turn_accel":0.35,
+        "jump_velocity":-6.5
+    }
+
+}
+
+
+
