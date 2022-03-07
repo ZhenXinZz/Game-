@@ -6,7 +6,7 @@ class Transition:
         self.finished = False
         self.next ='niveau'
         self.tr = demarrer.GRAPHICS['transition']
-        self.tr_rect=self.tr.get_rect()# 让图片变成矩形
+        self.tr_rect=self.tr.get_rect()# transformer les images en quadrilatère
         self.tr=pygame.transform.scale(self.tr,(int(self.tr_rect.width*0.51),int(self.tr_rect.height*0.49)))
         self.viewport=demarrer.SCREEN.get_rect()
         self.timer=0
@@ -14,7 +14,7 @@ class Transition:
         self.draw(surface)
         if self.timer==0:
             self.timer =pygame.time.get_ticks()
-        elif pygame.time.get_ticks() - self.timer>2000:
+        elif pygame.time.get_ticks() - self.timer>2000:#passe à la prochain étape après 2 sec
             self.finished=True
             self.timer=0
     def draw(self,surface):
