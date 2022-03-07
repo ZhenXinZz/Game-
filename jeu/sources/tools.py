@@ -8,10 +8,9 @@ class Game:
         pygame.init()
         pygame.display.set_mode((1300,700))
         pygame.display.set_caption('Nian')
-        self.bg=pygame.image.load(r'C:\Thonny\jeu\ressources\imageetsprite\bg.jpg')
-        icon=pygame.image.load(r'C:\Thonny\jeu\ressources\imageetsprite\icon.jpg')
+        icon=pygame.image.load(os.path.join('ressources','imageetsprite','icon.jpg'))
         pygame.display.set_icon(icon)
-        self.start=pygame.image.load(r'C:\Thonny\jeu\ressources\imageetsprite\开始游戏.png')
+        self.start=pygame.image.load(os.path.join('ressources','imageetsprite','开始游戏.png'))
         self.screen=pygame.display.get_surface()
         self.clock = pygame.time.Clock()# fps 游戏帧数和\
         self.keys=pygame.key.get_pressed()
