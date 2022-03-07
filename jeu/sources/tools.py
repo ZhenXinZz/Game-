@@ -56,9 +56,9 @@ def load_graphics(path,accept=('.jpg','.png','.bap','.gif')): # 加载图片的�
             graphics[name]=img
     return graphics
 
-def get_image(sheet,x,y,width,height,colorkey,scale):# sheet :l'endroit ou se trouve une image 
+def get_image(sheet,x,y,width,height,colorkey,scale):# sheet :l'endroit où se trouve une image 
     image=pygame.Surface((width,height))
-    image.blit(sheet,(0,0),(x,y,width,height))# 0,0 les ordonnées ou on commence à dessiner  
+    image.blit(sheet,(0,0),(x,y,width,height))# 0,0 les ordonnées où on commence à dessiner  
     image.set_colorkey(colorkey)# photoshoper
-    image=pygame.transform.scale(image,(int(width*scale),int(height*scale)))# redimentionner l image，scale : coefficient
+    image=pygame.transform.scale(image,(int(width*scale),int(height*scale)))# redimentionner l'image，scale : coefficient
     return image 
