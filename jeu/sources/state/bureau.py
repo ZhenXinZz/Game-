@@ -4,15 +4,15 @@ from .. import tools
 
 class MainMenu:
     def __init__(self):
-        self.setup_background()#设置底图
-        self.setup_player()#设置玩家
-        self.setup_cursor()#设置光标
+        self.setup_background()#créer le bg
+        self.setup_player()#créer le personnage
+        self.setup_cursor()#créer le curseur
         self.finished=False
         self.next='transition'
         
     def setup_background(self):
-        self.background = demarrer.GRAPHICS['bg'] # 利用已经存在demarrer里面的变量直接抠图
-        self.background_rect=self.background.get_rect()# 让图片变成矩形
+        self.background = demarrer.GRAPHICS['bg'] 
+        self.background_rect=self.background.get_rect()# transformer les images en quadrilatéral
         self.viewport=demarrer.SCREEN.get_rect()
         self.start = demarrer.GRAPHICS['开始游戏']
         self.background=pygame.transform.scale(self.background,(int(self.background_rect.width*0.68)
@@ -43,7 +43,7 @@ class MainMenu:
         
         self.update_cursor(keys)
 
-        surface.blit(self.background,self.viewport)
+        surface.blit(self.background,self.viewport)# self.viewport(0,0)
         surface.blit(self.start,(274,227))
         surface.blit(self.cursor.image,self.cursor.rect)
         
