@@ -24,18 +24,18 @@ class Player(pygame.sprite.Sprite):
         file_name = self.name + '.json'
         file_path= os.path.join('sources/data/player',file_name)
         with open(file_path)as f:
-            self.player_data = json.load(f)
+            self.player_data = json.load(f)  #importer ;e dossier json et transformer en dictionnaire 
      
-    def setup_states(self):# 人物的状态，死亡，无敌，或者脸朝右
+    def setup_states(self):# les etats du personnage: mort , vers droit, vers gauche 
         self.state='stand'
         self.face_right=True
         self.dead= False
         self.big= False
         self.can_jump = True
         
-    def setup_velocities(self): #游戏速度数值
-        speed =self.player_data['speed']
-        self.x_vel=0 #初始速度
+    def setup_velocities(self): #les donnees de la vitesse
+        speed =self.player_data['speed'] # prend les valeurs de player_data avec le cle = speed
+        self.x_vel=0 #vitesse initiale
         self.y_vel=0
         
         self.max_walk_vel=speed['max_walk_speed']
@@ -51,10 +51,10 @@ class Player(pygame.sprite.Sprite):
         self.max_x_vel =self.max_walk_vel
         self.x_accel=self.walk_accel
         
-    def setup_timers(self): #记录时常
+    def setup_timers(self): #chronometrer
         self.walking_timer=0
         self.timer=0
-        self.transition_timer=0 #变身时常的计时器
+        self.transition_timer=0 
         
     def load_images(self):
         sheet=demarrer.GRAPHICS['er2']
@@ -192,15 +192,9 @@ class Player(pygame.sprite.Sprite):
             self.face_right=False
     
     def attack(self,keys):
-        check=True
-        frame_duration =400
-        while check:
-            if self.current_time-self.timer> frame_duration:
-                self.frame_index+=1
-                self.timer=self.current_time
-            if self.frame_index==13:
-                check=False
-        
+        self.frame_index=9
+        self.frame_index=10
+
                 
 
                         

@@ -28,19 +28,19 @@ class Niveau:
         self.start_x,self.end_x,self.player_x,self.player_y =self.position[0]
      
     def setup_background(self):
-        self.map = demarrer.GRAPHICS['map'] # 利用已经存在demarrer里面的变量直接抠图
-        rect=self.map.get_rect()# 让图片变成矩形
+        self.map = demarrer.GRAPHICS['map'] # profite le variable definit dans le demarrer GRAPHICS  
+        rect=self.map.get_rect()# image devient un quadrilatere
         self.map=pygame.transform.scale(self.map,(int(rect.width*1.5),
                                                     int(rect.height*0.51)))
-        self.map_rect=self.map.get_rect()# 让图片变成矩形
+        self.map_rect=self.map.get_rect()
         self.game_window=demarrer.SCREEN.get_rect()
-        self.game_ground = pygame.Surface((self.map_rect.width, self.map_rect.height))
+        self.game_ground = pygame.Surface((self.map_rect.width, self.map_rect.height))#dessiner une image blanche avec h=hauteur de map et l= largeur de map
         
 
     
     def setup_player(self):
         self.player=player.Player('er2')
-        self.player.rect.x=self.game_window.x + self.player_x
+        self.player.rect.x=self.game_window.x + self.player_x #game_windox.x = 0
         self.player.rect.bottom=self.player_y
     
     
@@ -60,7 +60,7 @@ class Niveau:
         self.draw(surface)
         
 
-    def update_player_position(self):
+    def update_player_position(self):  #changer les coordonnees
         self.player.rect.x+= self.player.x_vel
         if self.player.rect.x< self.start_x:
             self.player.rect.x=self.start_x
@@ -71,19 +71,19 @@ class Niveau:
         self.check_y_collisions()
 
 
-    def check_x_collisions(self):
+    def check_x_collisions(self): #collision
         ground_item = pygame.sprite.spritecollideany(self.player,self.ground_items_group)
         if ground_item:
             self.adjust_player_x(ground_item)
             
             
-    def check_y_collisions(self):
+    def check_y_collisions(self):#collisions
         ground_item = pygame.sprite.spritecollideany(self.player,self.ground_items_group)
         if ground_item:
             self.adjust_player_y(ground_item)
         self.check_will_fall(self.player)
             
-    def adjust_player_x (self,sprite):
+    def adjust_player_x (self,sprite):#apres la collision, trouver les nouveaux coordonnees
         if self.player.rect.x < sprite.rect.x:
             self.player.rect.right = sprite.rect.left
         else:
@@ -91,7 +91,7 @@ class Niveau:
         self.player.x_vel = 0
         
         
-    def adjust_player_y (self,sprite):
+    def adjust_player_y (self,sprite):#apres la collision, trouver les nouveaux coordonnees
         if self.player.rect.bottom < sprite.rect.bottom:
            self.player.y_vel=0
            self.player.rect.bottom = sprite.rect.top
@@ -101,7 +101,7 @@ class Niveau:
             self.player.rect.top=sprite.rect.bottom
             self.player.state = 'fall'
 
-    def check_will_fall(self,sprite):
+    def check_will_fall(self,sprite):#verifie si dans l etat de fall
         sprite.rect.y+=1
         check_group = pygame.sprite.Group(self.ground_items_group)
         collided = pygame.sprite.spritecollideany(sprite,check_group)
@@ -109,7 +109,7 @@ class Niveau:
             sprite.state = 'fall'
         sprite.rect.y -=1
         
-    def update_game_window(self):
+    def update_game_window(self):#charger la camera
         tier = self.game_window.x + self.game_window.width/3
         if self.player.x_vel > 0 and self.player.rect.centerx > tier and self.game_window.right< self.end_x:
             self.game_window.x+= self.player.x_vel
