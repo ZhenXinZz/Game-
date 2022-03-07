@@ -4,7 +4,7 @@ from .. import tools
 
 class MainMenu:
     def __init__(self):
-        self.setup_background()#créer le bg
+        self.setup_background()#créer le backgroung
         self.setup_player()#créer le personnage
         self.setup_cursor()#créer le curseur
         self.finished=False
@@ -12,7 +12,7 @@ class MainMenu:
         
     def setup_background(self):
         self.background = demarrer.GRAPHICS['bg'] 
-        self.background_rect=self.background.get_rect()# transformer les images en quadrilatéral
+        self.background_rect=self.background.get_rect()# transformer les images en quadrilatère
         self.viewport=demarrer.SCREEN.get_rect()
         self.start = demarrer.GRAPHICS['开始游戏']
         self.background=pygame.transform.scale(self.background,(int(self.background_rect.width*0.68)
