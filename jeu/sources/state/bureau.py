@@ -17,7 +17,7 @@ class MainMenu:
         self.start = demarrer.GRAPHICS['开始游戏']
         self.background=pygame.transform.scale(self.background,(int(self.background_rect.width*0.68)
                                                         ,int(self.background_rect.height*0.67)))
-        self.start_rect=self.background.get_rect()
+
         
         
     def setup_player(self):
